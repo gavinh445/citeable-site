@@ -173,6 +173,7 @@
     padding:28px;background:rgba(255,255,255,.02);display:flex;flex-direction:column;gap:18px}
   .field{display:flex;flex-direction:column;gap:9px}
   .field label{font-size:.7rem;font-weight:500;text-transform:uppercase;letter-spacing:.28em;color:var(--faint)}
+  .field label .lhint{text-transform:none;letter-spacing:.01em;font-weight:400;font-size:.8rem;color:var(--faint);opacity:.8;margin-left:.5em}
   .audit-card input{width:100%;background:rgba(255,255,255,.04);border:1px solid var(--line);
     border-radius:10px;color:var(--ink);font:inherit;font-weight:300;padding:14px 16px}
   .audit-card input::placeholder{color:rgba(255,255,255,.35)}
@@ -215,7 +216,7 @@
     <div class="wrap">
       <form id="auditForm" class="audit-card" novalidate>
         <div class="field">
-          <label for="url">Your website</label>
+          <label for="url">Your website <span class="lhint">&mdash; your full homepage address, e.g. yourbusiness.ie</span></label>
           <input id="url" name="url" type="text" inputmode="url" placeholder="yourbusiness.ie" autocomplete="url" required>
         </div>
         <div class="field">
