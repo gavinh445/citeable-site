@@ -238,8 +238,6 @@
             <p class="note" id="scorePassed"></p>
           </div>
         </div>
-        <span class="kicker">Biggest things holding you back</span>
-        <ul class="issues" id="issues"></ul>
         <p class="result-sent" id="resultSent"></p>
         <a class="email" href="mailto:gavin@citeableapp.com?subject=Fix%20my%20visibility">Get these fixed &rarr;</a>
       </div>
@@ -341,16 +339,9 @@
     document.getElementById("dial").style.setProperty("--pct", d.score);
     document.getElementById("scoreLabel").textContent = d.grade + " " + EMDASH + " " + d.label;
     document.getElementById("scorePassed").textContent = d.passed + " of " + d.total_checks + " checks passed";
-    var ul=document.getElementById("issues"); ul.innerHTML="";
-    (d.top_issues||[]).forEach(function(it){
-      var li=document.createElement("li"); li.className="issue";
-      var h=document.createElement("strong"); h.textContent=it.label;
-      var p=document.createElement("span"); p.textContent=it.fix;
-      li.appendChild(h); li.appendChild(p); ul.appendChild(li);
-    });
-    document.getElementById("resultSent").textContent = d.report_sent
-      ? ("Your full breakdown is on its way to " + email + " — the email can take about 2 minutes to land. While you wait, feel free to look around the site and get to know us.")
-      : ("We have your details — Gavin will send the full breakdown to " + email + " shortly. Feel free to look around the site while you wait.");
+    document.getElementById("resultSent").innerHTML = d.report_sent
+      ? ("<strong>Your audit is on its way.</strong><br>We’ve got your email and we’re sending your full report over now — estimated wait is about 2 minutes. While you wait, feel free to look around the site and get to know what we do.")
+      : ("<strong>We’ve got your email.</strong><br>We’ll send your full report over shortly. Feel free to look around the site in the meantime.");
     result.hidden=false;
     result.scrollIntoView({behavior:"smooth",block:"start"});
   }
