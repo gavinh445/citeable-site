@@ -313,7 +313,7 @@
     if(document.querySelector(".cf-turnstile") && !token){ showMsg("Please complete the human check, then try again."); return; }
 
     var old=btn.textContent;
-    btn.disabled=true; btn.textContent="Auditing your site...";
+    btn.disabled=true; btn.textContent="Auditing your site — up to a minute...";
 
     fetch(API_BASE+"/api/audit",{
       method:"POST",
@@ -349,8 +349,8 @@
       li.appendChild(h); li.appendChild(p); ul.appendChild(li);
     });
     document.getElementById("resultSent").textContent = d.report_sent
-      ? ("Your full breakdown, every check and fix, is on its way to " + email + ".")
-      : ("We have your details, Gavin will send the full breakdown to " + email + " shortly.");
+      ? ("Your full breakdown is on its way to " + email + " — the email can take about 2 minutes to land. While you wait, feel free to look around the site and get to know us.")
+      : ("We have your details — Gavin will send the full breakdown to " + email + " shortly. Feel free to look around the site while you wait.");
     result.hidden=false;
     result.scrollIntoView({behavior:"smooth",block:"start"});
   }
